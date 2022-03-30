@@ -5,9 +5,11 @@ s = "hello"
 
 print(s.capitalize())           # 앞 글자만 대문자로
 print(s.upper())                # 전체 문자열을 대문자로
+print(s.lower())		# 전체 문자열을 소문자로
 print(s.replace('l', '(ell)'))	# 특정 문자열을 다른 문자열로 대체
 print('  world '.strip())       # 앞 뒤 공백 제거
 print(s.split('l'))             # 특정 문자열 기준으로 나눈 뒤 list로 저장
+print(s.startswith('h'))	# 특정 문자열로 시작하는지 boolean 값 반환
 print(s)                        # "hello"
 ```
 
