@@ -68,7 +68,7 @@ def draw_graph():
   # 각 막대를 가운데 정렬
   plt.bar(pos, temperature, align="center")
   
-  # 각 막대에 해당되는 연도를 표기
+  # 각 막대에 해당되는 연도를 표기 (실제위치, 나타낼값)
   plt.xticks(pos, years)
   
   # 그래프 출력
