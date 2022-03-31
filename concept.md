@@ -80,6 +80,134 @@ draw_graph()
 ---
 
 # 모듈과 패키지
+## 모듈과 패키지   
+✔️ 모듈 -> 패키지 -> 라이브러리   
+- 모듈: 함수나 변수 또는 클래스를 모아 놓은 파일
+- 패키지: 연관된 여러 모듈의 묶음
+- 라이브러리: 여러 모듈과 패키지를 묶어 부르는 말   
+
+## 모듈 불러오기   
+✔️ import 키워드를 이용해 다른 모듈의 함수, 변수, 클래스를 불러올 수 있음   
+✔️ from 키워드를 통해 특정 함수, 변수, 클래스를 불러올 수 있음  
+1. 같은 파일 내에서 실행했을 경우
+```py
+# my_module.py
+def plus(a, b):
+  c = a + b
+  return c
+
+# main.py
+import my_module
+print(my_module.plus(2, 3))
+
+import my_module as mm
+print(mm.plus(2, 3))
+
+from my_module import plus
+print(plus(2, 3))
+
+from my_module import *
+print(plus(2, 3))
+```
+
+2. 다른 파일에서 실행했을 경우
+- `import 상위패키지.하위패키지.모듈` -> `상위패키지.하위패키지.모듈.함수()`
+- `from 상위패키지.하위패키지 import 모듈` -> `모듈.함수()`
+- `from 상위패키지.하위패키지.모듈 import 함수` -> `함수()`
+
+### __init__.py   
+✔️ 이 폴더가 패키지라고 말해줌
+- __init__.py 파일에서 import
+- 패키지를 호출하면 자동으로 __init__.py 파일이 샐행
+- `from . import 모듈이름`
+
+```py
+# apple에 있는 __init__.py
+from . import ipad
+from . import iphone
+
+# apple 안에 ipad에 있는 __init__.py
+from . import draw
+
+# main.py
+import Package
+
+apple.ipad.함수()
+```
+### __name__   
+✔️ 직접 만든 모듈을 불러올 때, 원하지 않는 명령이 실행될 수 있음   
+- `if __name__ == "__main__"
+```py
+# my_module.py
+def plus(a, b):
+  c = a + b
+  print(c)
+  return c
+  
+if __name__ == "__main__":
+  plus(3, 5)
+
+# main.py
+import my_module
+
+my_module.plus(2, 3)  # 5
+print(__name__)           # __main__
+print(my_module.__name__) # 'my_module.py'
+```
+
+### 패키지에서 * import 하기   
+✔️ 패키지의 __init__.py코드가 `__all__`이라는 이름의 목록을 제공(1)   
+```py
+# main.py
+from apple import *
+
+iphone.call.sayhello()
+ipad.draw.draw_line()
+
+# apple/__init__.py
+__all__ = ['iphone', 'ipad']
+
+# apple/iphone/__init__.py
+from apple.iphone import call
+
+# apple/ipad/__init__.py
+from apple.ipad import draw
+```
+```py
+# main.py
+from apple.iphone import *
+
+call.sayhello()
+
+# apple/iphone/__init__.py
+__all__ = ['call']
+```
+   
+✔️ 패키지의 __init__.py코드가 `__all__`이라는 이름의 목록을 제공(1)   
+```py
+# main.py
+import apple
+
+apple.iphone.call.sayhello()
+apple.call.sayhello()
+
+# apple/__init__.py
+from apple.iphone import *
+from apple.ipad import *
+
+# apple/iphone/__init__.py
+__all__ = ['call']
+```
+```py
+# main.py
+from apple import *
+
+iphone.call.sayhello()
+call.sayhello()
+
+# 나머진 위와 같음
+```
+
 ## 외부 라이브러리 사용하기
 ```bash
 $ pip install 패키지이름
