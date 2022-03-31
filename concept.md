@@ -76,4 +76,46 @@ def draw_graph():
 
 draw_graph()
 ```
-  
+
+---
+
+# 모듈과 패키지
+## 외부 라이브러리 사용하기
+```bash
+$ pip install 패키지이름
+```
+
+## 가상환경   
+✔️ 사용된 라이브러리들의 버전이 다른 경우를 막기 위해, 프로젝트 별 가상환경을 구축   
+- Pycharm
+- venv
+- Anaconda
+- Colab
+
+---
+
+# ML 파이프라인
+![image](https://user-images.githubusercontent.com/48720589/161081906-38f4d422-b29c-4024-8cea-9cf3f88ce52e.png)   
+
+## Iterator, generator   
+❓ 한정된 자원으로 인해 대규모 데이터를 많은 연산이 필요한 머신러닝 모델에 한 번에 넣기 불가능   
+❓ 저장된 데이터를 조금씩 불러와 모델에게 넣어주고 모델은 데이터의 일부를 보면서 전체 데이터를 학습   
+
+### generator   
+✔️ 조금씩 데이터를 불러오는 것   
+- `next()`를 사용해서 yield 만날 때까지만 실행
+- `yield`는 값을 반환
+```py
+def finite_generator():
+  count = 0
+  for i in range(10):
+    count += 1
+    yield count
+    
+gen = finite_generator()
+next(gen) # 1
+next(gen) # 2
+next(gen) # 3
+```
+## Dataloader   
+✔️ 데이터를 조금씩 불러와주는 역할   
