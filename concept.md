@@ -245,5 +245,8 @@ next(gen) # 1
 next(gen) # 2
 next(gen) # 3
 ```
+
 ## Dataloader   
 ✔️ 데이터를 조금씩 불러와주는 역할   
+
+
