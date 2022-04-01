@@ -58,6 +58,33 @@ accounts = {
 print("kdhong" in accounts) # True
 ```
 
+### JSON과 변환
+1. `json.loads(제이슨)` - JSON을 딕셔너리로
+- 딕셔너리의 모든 원소는 문자열 타입으로 설정됨
+2. `dumps()` - 딕셔너리를 JSON으로
+
+## 집합   
+✔️ 중복과 순서가 없음   
+```py
+set1 = {1, 2, 3}
+set2 = set(set1)
+```
+```py
+num_set = {1, 3, 5, 7}
+num_set.add(9)			# 추가
+num_set.update([3, 15, 4])	# 여러개 추가
+num_set.remove(7)		# 삭제, 삭제하는 원소가 존재하지 않으면 에러o
+num_set.discard(13)		# 삭제, 삭제하는 원소가 존재하지 않아도 에러x
+print(6 in num_set)		# False
+```
+
+### 연산
+```py
+union = set1 | set2		# 합집합
+intersection = set1 & set2	# 교집합
+diff = set1 -set2		# 차집합
+xor = set1 ^ set2		# XOR(set1에만 속하고 set2에만 속하는 것들의 합집합)
+```
 ---
 
 # 함수
