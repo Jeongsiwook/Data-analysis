@@ -257,4 +257,29 @@ next(gen) # 3
 ## Dataloader   
 ✔️ 데이터를 조금씩 불러와주는 역할   
 
+---
+
+# CSV(Comma Separated Value)   
+✔️ 각 열이 특정한 의미를 가짐(, 혹은 | 로 나눌 수 있음)    
+- 같은 데이터를 저장하는데 용량을 적게 소모함
+- 데이터 오염에 취약함
+- 데이터에 ,가 포함된 경우 ""를 이용하여 데이터를 감쌈
+```py
+# movies.csv
+# 국문 제목, 영문 제목, 개봉 연도
+다크나이트, The Dark Knight, 2008
+겨울왕국, Frozen, 2013
+```
+```py
+import csv
+
+with open('movies.csv') as file:
+  reader = csv.reader(file, delimiter=',')  # | 로 구분되어있으면 | 사용
+  for row in reader:
+    print(row[0])
+```
+
+---
+
+
 
