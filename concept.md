@@ -77,6 +77,14 @@ def draw_graph():
 draw_graph()
 ```
 
+### 그래프 설정
+```py
+font = fm.FontProperties(fname='./NanumBarungothic.ttf')          # 폰트 설정
+plt.xticks(pos, dates, rotation='vertical', fontproperties=font)  # 각 막대에 해당되는 단어 입력
+plt.title('1월 중 기온 변화', fontproperties=font)
+plt.ylabel('온도', fontproperties=font)                          
+plt.tight_layout()                                                # 여백 조정
+```
 ---
 
 # 모듈과 패키지
