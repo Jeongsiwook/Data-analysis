@@ -97,7 +97,7 @@ xor = set1 ^ set2		# XOR(set1에만 속하고 set2에만 속하는 것들의 합
 2. 사용자 정의함수
 3. 메서드 - `string.upper()`, ...
 
-## 함수와 관련된 유용한 문법: lambda, map
+## 함수와 관련된 유용한 문법: lambda, map, filter
 ```py
 def getSum(a, b, c):
   res = a + b + c
@@ -111,6 +111,14 @@ getSum = lambda a, b, c: a + b + c
 
 # map(함수, iterable)
 list(map(getName, ['a', 'b', 'c'])) # 순서대로 출력
+
+# filter(함수, iterable)
+def starts_with_r(word):
+  return word.startswith('r')  	
+words = ['real', 'man', 'rhythm', ...]
+r_words = list(filter(starts_with_r, words))	# 함수는 boolean 반환
+```
+
 ```
 
 ## 함수와 관련된 지식: call by reference, call by value   
