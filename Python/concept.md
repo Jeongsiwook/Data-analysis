@@ -49,6 +49,15 @@ for pair in zip(numbers, letters):
   print(pair) # (numbers[i], letters[i]) 출력
 ```
 
+## 딕셔너리   
+✔️ 변할 수 없는 값만이 key가 될 수 있음   
+```py
+accounts = {
+  "kdhong": "kildong Hong",
+}
+print("kdhong" in accounts) # True
+```
+
 ---
 
 # 함수
