@@ -280,6 +280,3 @@ with open('movies.csv') as file:
 ```
 
 ---
-
-
-
